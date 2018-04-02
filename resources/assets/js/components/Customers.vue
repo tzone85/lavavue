@@ -1,11 +1,24 @@
 <template>
-   <h1>Hi Customer</h1>
+   <table class="table table-bordered table-striped table-condensed">
+      <thead>
+         <tr>
+            <th>Name</th>
+            <th>Email</th>
+         </tr>
+      </thead>
+   </table>
 </template>
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
+        data(){
+            return{
+                customers: [
+                    {name: 'Mncedi Mini', email:'mncedi@thandotec.co.za'},
+
+                    {name: 'Noncedo Mini', email:'noncedo@thandotec.co.za'}
+                ],
+            }
         }
     }
 </script>
