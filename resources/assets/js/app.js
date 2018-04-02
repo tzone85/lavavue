@@ -21,9 +21,12 @@ window.Vue = require('vue');
 var Vue = require('vue');
 Vue.use(require('vue-resource'));
 
-Vue.component('example', require('./components/Example.vue'));
 Vue.component('customer', require('./components/Customers.vue'));
 
+import customer from './components/Customers.vue';
+
 const app = new Vue({
-    el:'#app'
-})
+    el:'#app',
+
+    components : { customer }
+});
