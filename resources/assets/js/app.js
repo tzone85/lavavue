@@ -20,6 +20,7 @@ window.Vue = require('vue');
 window.Vue = require('vue');
 var Vue = require('vue');
 Vue.use(require('vue-resource'));
+
 const app = new Vue({
     el:'#app'
 })
