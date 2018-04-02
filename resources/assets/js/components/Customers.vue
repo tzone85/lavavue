@@ -6,6 +6,15 @@
             <th>Email</th>
          </tr>
       </thead>
+
+       <tbody>
+        <tr v-for="customer in customers">
+
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.email }}</td>
+
+        </tr>
+       </tbody>
    </table>
 </template>
 
