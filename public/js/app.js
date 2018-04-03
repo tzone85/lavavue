@@ -11965,6 +11965,9 @@ Vue.use(__webpack_require__(38));
 
 Vue.component('customer', __webpack_require__(58));
 
+//csrf now that we are going to be using the db
+Vue.$http.headers.common['X-CSRF-TOKEN'] = $('meta[name="csrf-token"]').attr('content');
+
 
 
 var app = new Vue({
@@ -44851,8 +44854,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            customers: [{ name: 'Mncedi Mini', email: 'mncedi@thandotec.co.za' }, { name: 'Noncedo Mini', email: 'noncedo@thandotec.co.za' }]
+            customers: [
+
+                /*{name: 'Mncedi Mini', email:'mncedi@thandotec.co.za'},
+                {name: 'Noncedo Mini', email:'noncedo@thandotec.co.za'}*/
+
+                //                    going to be reading from db now
+
+            ]
         };
+    },
+    create: function create() {
+        this.fetchCustomer();
+    },
+
+
+    methods: {
+        fetchCustomer: function fetchCustomer() {
+            var _this = this;
+
+            this.$http.get("customer").then(function (response) {
+                _this.customers = response.data.customers;
+            });
+        }
     }
 });
 

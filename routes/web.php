@@ -12,10 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('customer');
 });
 
-Route::view('customer', 'customer');
+//Route::view('customer', 'customer');
+
+Route::resource('customer', 'CustomerController');
 
 Auth::routes();
 

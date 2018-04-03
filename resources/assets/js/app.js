@@ -23,6 +23,9 @@ Vue.use(require('vue-resource'));
 
 Vue.component('customer', require('./components/Customers.vue'));
 
+//csrf now that we are going to be using the db
+Vue.$http.headers.common['X-CSRF-TOKEN'] = $('meta[name="csrf-token"]').attr('content');
+
 import customer from './components/Customers.vue';
 
 const app = new Vue({
